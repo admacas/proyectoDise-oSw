@@ -1,0 +1,5 @@
+projectKey=sw12
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/sw12
+ceTaskId=AWV9_bS_ieMg2ORUqI_d
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWV9_bS_ieMg2ORUqI_d
