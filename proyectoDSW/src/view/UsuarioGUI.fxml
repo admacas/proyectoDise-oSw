@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="root" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuarioGUIController">
+   <bottom>
+      <TableView fx:id="tableUsuario" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn id="tabCedula" fx:id="tabCedula" minWidth="20.0" prefWidth="75.0" text="Cedula" />
+          <TableColumn id="tabNombre" fx:id="tabNombre" minWidth="50.0" prefWidth="75.0" text="Nombre" />
+            <TableColumn id="tabApe" fx:id="tabApe" minWidth="50.0" prefWidth="75.0" text="Apellido" />
+            <TableColumn id="tabEmail" fx:id="tabEmail" minWidth="50.0" prefWidth="75.0" text="Email" />
+            <TableColumn id="tabTele" fx:id="tabTele" minWidth="50.0" prefWidth="75.0" text="Telefono" />
+            <TableColumn id="tabEdad" fx:id="tabEdad" minWidth="15.0" prefWidth="75.0" text="Edad" />
+            <TableColumn id="tabDir" fx:id="tabDir" minWidth="170.0" prefWidth="227.0" text="Direccion" />
+        </columns>
+      </TableView>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="46.0" prefWidth="628.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="btnRegresar" fx:id="btnRegresar" layoutX="579.0" layoutY="10.0" mnemonicParsing="false" onAction="#regresar" text="Regresar">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <RadioButton id="radCrear" fx:id="radCrear" layoutX="28.0" layoutY="15.0" mnemonicParsing="false" onAction="#habilitarCrear" text="Crear">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radUP" layoutX="102.0" layoutY="15.0" mnemonicParsing="false" onAction="#habilitarActualizar" text="Actualizar" toggleGroup="$group1" />
+            <RadioButton id="radDE" fx:id="radDE" layoutX="206.0" layoutY="15.0" mnemonicParsing="false" onAction="#habilitarEliminar" text="Eliminar" toggleGroup="$group1" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="324.0" prefWidth="592.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="30.0" layoutY="33.0" text="Username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="71.0" text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="112.0" text="Rol">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField id="textUser" fx:id="textUser" disable="true" layoutX="113.0" layoutY="31.0" />
+            <TextField id="textRol" fx:id="textRol" disable="true" layoutX="113.0" layoutY="109.0" />
+            <Label layoutX="29.0" layoutY="148.0" text="Cedula">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="186.0" text="Nombre">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="222.0" text="Apellido">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField id="textCed" fx:id="textCed" disable="true" layoutX="113.0" layoutY="145.0" />
+            <TextField id="textNom" fx:id="textNom" disable="true" layoutX="113.0" layoutY="183.0" />
+            <TextField id="textApe" fx:id="textApe" disable="true" layoutX="114.0" layoutY="219.0" />
+            <TextField id="textEmail" fx:id="textEmail" disable="true" layoutX="452.0" layoutY="31.0" />
+            <TextField id="textTele" fx:id="textTele" disable="true" layoutX="452.0" layoutY="69.0" />
+            <TextField id="textEdad" fx:id="textEdad" disable="true" layoutX="452.0" layoutY="109.0" prefHeight="25.0" prefWidth="61.0" />
+            <TextArea id="textDir" fx:id="textDir" disable="true" layoutX="452.0" layoutY="208.0" prefHeight="106.0" prefWidth="218.0" />
+            <Label layoutX="360.0" layoutY="35.0" text="Email">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="360.0" layoutY="71.0" text="Telefono">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="363.0" layoutY="113.0" text="Edad">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="365.0" layoutY="209.0" text="Direccion">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button id="btnEjecutar" fx:id="btnEjecutar" layoutX="159.0" layoutY="290.0" mnemonicParsing="false" onAction="#ejecutarAction" text="Ejecutar" />
+            <TextField id="textPass" fx:id="textPass" disable="true" layoutX="113.0" layoutY="69.0" />
+            <Label layoutX="363.0" layoutY="163.0" text="Local">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField id="textLocal" fx:id="textLocal" disable="true" layoutX="452.0" layoutY="161.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
