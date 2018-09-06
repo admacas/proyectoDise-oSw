@@ -56,3 +56,9 @@ create table empleados(
 	foreign key (iduser) references usuarios(iduser),
 	foreign key (idlocal) references locales(idlocal)
 );
+insert into empleados(idpersona,iduser,idlocal) values('0968197691',1,null);
+insert into empleados(idpersona,iduser,idlocal) values('0989741230',2,1);
+insert into empleados(idpersona,iduser,idlocal) values('0620365489',3,1);
+insert into empleados(idpersona,iduser,idlocal) values('0603589744',4,1);
+ select * from empleados e join personas pe on e.idpersona=pe.cedula
+ join usuarios u on e.iduser=u.iduser join roles r on u.idrol=r.idrol;
