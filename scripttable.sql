@@ -36,4 +36,23 @@ insert into personas(cedula,nombre,apellido,telefono,email,edad,direccion) value
 insert into personas(cedula,nombre,apellido,telefono,email,edad,direccion) values ('0989741230','Jhonatan','Leon','0987963010','jkleon@hotmial',20,'Guasmo sur');
 insert into personas(cedula,nombre,apellido,telefono,email,edad,direccion) values ('0620365489','Hernan','Castro','0925897410','hgcastro@hotmail',26,'Ceibos norte');
 insert into personas(cedula,nombre,apellido,telefono,email,edad,direccion) values ('0603589744','Fernando','Suarez','1208963256','suarez@hotmail',21,'Florida norte');
-select * from personas;
+create table locales(
+	idlocal serial not null,
+	nombre varchar(50) not null,
+	telefono varchar(25) not null,
+	direccion varchar(250) not null,
+	primary key(idlocal)
+);
+insert into locales(nombre,telefono,direccion) values ('Local Norte','042894578','Guasmo Norte');
+insert into locales(nombre,telefono,direccion) values ('Local Sur','042412356','Floresta');
+insert into locales(nombre,telefono,direccion) values ('Local Centro','042365241','9 de Octubre');
+create table empleados(
+	idempleado serial not null,
+	estado boolean default false,
+	idpersona varchar(20),
+	iduser int,
+	idlocal int,
+	foreign key (idpersona) references personas(cedula),
+	foreign key (iduser) references usuarios(iduser),
+	foreign key (idlocal) references locales(idlocal)
+);

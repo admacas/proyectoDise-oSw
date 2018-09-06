@@ -44859,7 +44859,7 @@
 							},
 							"name": "direccion",
 							"type": "VARCHAR",
-							"length": "100"
+							"length": "250"
 						}
 					]
 				},
@@ -45803,7 +45803,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFlp3eJ4TpD6Z8="
 							},
-							"name": "idusuario",
+							"name": "iduser",
 							"length": 0,
 							"foreignKey": true
 						},
