@@ -52,6 +52,7 @@ create table empleados(
 	idpersona varchar(20),
 	iduser int,
 	idlocal int,
+	primary key(idempleado),
 	foreign key (idpersona) references personas(cedula),
 	foreign key (iduser) references usuarios(iduser),
 	foreign key (idlocal) references locales(idlocal)
@@ -60,5 +61,79 @@ insert into empleados(idpersona,iduser,idlocal) values('0968197691',1,null);
 insert into empleados(idpersona,iduser,idlocal) values('0989741230',2,1);
 insert into empleados(idpersona,iduser,idlocal) values('0620365489',3,1);
 insert into empleados(idpersona,iduser,idlocal) values('0603589744',4,1);
- select * from empleados e join personas pe on e.idpersona=pe.cedula
- join usuarios u on e.iduser=u.iduser join roles r on u.idrol=r.idrol;
+create table productos(
+	idproducto serial not null,
+	nombre varchar(50) not null,
+	marca varchar(50) not null,
+	modelo varchar(50) not null,
+	descripcion varchar(300) not null,
+	precio float not null,
+	estado int default 1,
+	primary key(idproducto)
+);
+insert into productos(nombre,marca,modelo,descripcion,precio) values ('Cocina Induccion','Indurama','ANDALUCIA','24", 4 INDUCTORES, 4 BOOSTERS
+POTENCIA TOTAL:8240 W
+HORNO ELÉCTRICO RESISTENCIA SUELO: 1400 W
+RESISTENCIA GRILL: 1200W
+VOLTAJE: 220
+CABLE: TRIPOLAR TIPO INEMA 10-50P',180.99);
+insert into productos(nombre,marca,modelo,descripcion,precio) values ('Cocina Induccion','Indurama','PRAGA','24", 4 INDUCTORES, 4 BOOSTERS
+POTENCIA TOTAL:8240 W
+HORNO ELÉCTRICO RESISTENCIA SUELO: 1400 W
+RESISTENCIA GRILL: 1200W
+VOLTAJE: 220 V
+CABLE: TRIPOLAR TIPO INEMA 10-50P',192.88);
+insert into productos(nombre,marca,modelo,descripcion,precio) values('Refrigeradora','Durex','Grafito','1 puerta escalonada 287 litros
+																	Eficiencia energética categoría "A". 
+Sistema de enfriamiento Twist Air.
+Dispensador de 2 litros de capacidad.',480.30);
+insert into productos(nombre,marca,modelo,descripcion,precio) values('Refrigeradora','Durex','Andina','2 puertas 250 litros Blanco.
+																	Eficiencia energética categoría "A". 
+Sistema de enfriamiento Twist Air.
+Dispensador de agua.',688.99);
+insert into productos(nombre,marca,modelo,descripcion,precio) values ('Lavadora','Mabe','Semiautomatica','7.5 kg Blanca.
+																	 Semiautomática 2 tinas. 
+Sistema de lavado a propela. 
+Filtro atrapapelusas removible.
+Canasta de prolipopileno.',240.99);
+insert into productos(nombre,marca,modelo,descripcion,precio) values ('Lavadora Aqua Saver Green Automática','Mabe','Diamond Gray','24 kg 
+																	 Tecnología Aqua Saver Green
+Sistema de lavado por agitador.
+Canasta Sphere Care de acero inoxidable.
+Recuperación por corte de energía.
+Grado ecológico.',520.55);
+insert into productos(nombre,marca,modelo,descripcion,precio) values ('Lavadora Carga Frontal','Mabe','Diamond Gray Mabe','17 Kg Ciclo steam assist que remueve manchas difíciles y protege la ropa.
+																	 Centrifugado rápido que minimiza el tiempo de secado.',588.33);
+
+create table inventario(
+	idinventario serial not null,
+	idlocal int,
+	idproducto int,
+	cantidad int not null,
+	primary key(idinventario),
+	foreign key (idlocal) references locales(idlocal),
+	foreign key (idproducto) references productos(idproducto)
+);
+insert into inventario(idlocal,idproducto,cantidad) values (1,1,50);
+insert into inventario(idlocal,idproducto,cantidad) values (1,2,50);
+insert into inventario(idlocal,idproducto,cantidad) values (1,3,50);
+insert into inventario(idlocal,idproducto,cantidad) values (1,4,50);
+insert into inventario(idlocal,idproducto,cantidad) values (1,5,50);
+insert into inventario(idlocal,idproducto,cantidad) values (1,6,50);
+insert into inventario(idlocal,idproducto,cantidad) values (1,7,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,1,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,2,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,3,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,4,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,5,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,6,50);
+insert into inventario(idlocal,idproducto,cantidad) values (2,7,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,1,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,2,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,3,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,4,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,5,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,6,50);
+insert into inventario(idlocal,idproducto,cantidad) values (3,7,50);
+select * from inventario;
+
